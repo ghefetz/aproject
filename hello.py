@@ -13,8 +13,19 @@ def main() -> None:
     its side effects (printing), not for returning a value.
     """
 
+    # Ask the user for their name, then print a personalized greeting.
+    # `.strip()` removes any accidental leading/trailing spaces.
+    # If input isn't available (e.g., non-interactive run), fall back to "".
+    try:
+        name = input("What's your name? ").strip()
+    except EOFError:
+        name = ""
+
     # Print a friendly greeting to standard output.
-    print("Hello, world!")
+    if name:
+        print(f"Hello, world! Nice to meet you, {name}!")
+    else:
+        print("Hello, world!")
 
 
 if __name__ == "__main__":
